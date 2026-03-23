@@ -135,7 +135,7 @@ export default function HomePage() {
 
       {/* Progress Tracker */}
       <section className="max-w-5xl mx-auto px-4 -mt-6 relative z-10 mb-12">
-        <ProgressTracker completedSessions={[]} />
+        <ProgressTracker completedSessions={[1, 2, 3, 4, 5, 6, 7, 8]} />
       </section>
 
       {/* Module Cards */}
@@ -168,8 +168,8 @@ export default function HomePage() {
                       {mod.description}
                     </p>
                     <div className="mt-3 flex items-center gap-2 text-xs text-amber-600">
-                      <span className="bg-amber-100 px-2 py-1 rounded-full">
-                        Unlocks: Session {mod.unlockSession}
+                      <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">
+                        Unlocked
                       </span>
                     </div>
                   </div>
