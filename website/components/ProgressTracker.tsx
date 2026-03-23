@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const sessions = [
@@ -29,24 +30,25 @@ export default function ProgressTracker({ completedSessions = [] }: ProgressTrac
           const isNext = !isComplete && (i === 0 || completedSessions.includes(sessions[i - 1].id));
 
           return (
-            <motion.div
-              key={session.id}
-              whileHover={{ scale: 1.1 }}
-              className={`flex flex-col items-center gap-1 p-2 rounded-xl text-center cursor-pointer transition-colors ${
-                isComplete
-                  ? "bg-amber-100 border-2 border-amber-400"
-                  : isNext
-                  ? "bg-amber-50 border-2 border-dashed border-amber-300 animate-pulse-glow"
-                  : "bg-gray-100 border-2 border-gray-200 opacity-50"
-              }`}
-            >
-              <div className="text-2xl">
-                {isComplete ? "⭐" : isNext ? "🐝" : "🔒"}
-              </div>
-              <span className="text-xs font-semibold leading-tight">
-                {session.title}
-              </span>
-            </motion.div>
+            <Link key={session.id} href={`/sessions/${session.id}`}>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className={`flex flex-col items-center gap-1 p-2 rounded-xl text-center cursor-pointer transition-colors ${
+                  isComplete
+                    ? "bg-amber-100 border-2 border-amber-400"
+                    : isNext
+                    ? "bg-amber-50 border-2 border-dashed border-amber-300 animate-pulse-glow"
+                    : "bg-gray-100 border-2 border-gray-200 opacity-50"
+                }`}
+              >
+                <div className="text-2xl">
+                  {isComplete ? "⭐" : isNext ? "🐝" : "🔒"}
+                </div>
+                <span className="text-xs font-semibold leading-tight">
+                  {session.title}
+                </span>
+              </motion.div>
+            </Link>
           );
         })}
       </div>
