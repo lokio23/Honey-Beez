@@ -102,7 +102,7 @@ export default function PollinationPage() {
       if (selectedBee === flowerIndex) {
         setShowExplanation(null);
       }
-    }, 3000);
+    }, 8000);
   };
 
   useEffect(() => {

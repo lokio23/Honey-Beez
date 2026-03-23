@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { allSpecies, rarityColors, type BeeSpecies } from "@/lib/data/species";
+import { basePath } from "@/lib/basePath";
 
 type FilterType = "all" | "social" | "solitary";
 type RarityFilter = "all" | "common" | "rare" | "legendary";
@@ -92,7 +93,7 @@ function SpeciesCard({ species, onClick }: { species: BeeSpecies; onClick: () =>
       {/* Species Image */}
       <div className="h-32 bg-gradient-to-b from-white/50 to-transparent flex items-center justify-center">
         <Image
-          src={`/images/species/${species.id}-trading-card.png`}
+          src={`${basePath}/images/species/${species.id}-trading-card.png`}
           alt={species.name}
           width={100}
           height={100}
@@ -148,7 +149,7 @@ function SpeciesDetail({ species, onClose }: { species: BeeSpecies; onClose: () 
           </div>
           <div className="text-center mt-4">
             <Image
-              src={`/images/species/${species.id}-trading-card.png`}
+              src={`${basePath}/images/species/${species.id}-trading-card.png`}
               alt={species.name}
               width={150}
               height={150}

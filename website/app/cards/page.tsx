@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { allSpecies, rarityColors, type BeeSpecies } from "@/lib/data/species";
+import { basePath } from "@/lib/basePath";
 
 function StatBar({ label, value, maxValue = 10 }: { label: string; value: number; maxValue?: number }) {
   return (
@@ -56,7 +57,7 @@ function TradingCard({ species, flipped, onFlip }: { species: BeeSpecies; flippe
           {/* Bee Image Area */}
           <div className={`${colors.bg} h-36 flex items-center justify-center relative`}>
             <Image
-              src={`/images/species/${species.id}-trading-card.png`}
+              src={`${basePath}/images/species/${species.id}-trading-card.png`}
               alt={species.name}
               width={120}
               height={120}
